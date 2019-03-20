@@ -28,6 +28,7 @@ public class MainActivity extends AppCompatActivity implements CardNfcAsyncTask.
     private TextView mPutCardContent;
     private TextView mCardNumberText;
     private TextView mExpireDateText;
+    private TextView mHolderNameText;
     private ImageView mCardLogoIcon;
     private NfcAdapter mNfcAdapter;
     private AlertDialog mTurnNfcDialog;
@@ -110,6 +111,7 @@ public class MainActivity extends AppCompatActivity implements CardNfcAsyncTask.
         card = getPrettyCardNumber(card);
         String expiredDate = mCardNfcAsyncTask.getCardExpireDate();
         String cardType = mCardNfcAsyncTask.getCardType();
+//        String holderName = mCardNfcAsyncTask
         mCardNumberText.setText(card);
         mExpireDateText.setText(expiredDate);
         parseCardType(cardType);
@@ -206,8 +208,9 @@ public class MainActivity extends AppCompatActivity implements CardNfcAsyncTask.
 
     private String getPrettyCardNumber(String card){
         String div = " - ";
-        return  card.substring(0,4) + div + card.substring(4,8) + div + card.substring(8,12)
-                +div + card.substring(12,16);
+        String mask = "****";
+        return  card.substring(0,4) + div + card.substring(4,8) + div + mask
+                + div + card.substring(12,16);
     }
 
     private void goToRepo(){
