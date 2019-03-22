@@ -36,8 +36,8 @@
         <TextView
             android:id="@android:id/text1"
             style="@style/custom_tv"
-            android:layout_marginTop="90dp"
-            android:text="4444 - 4444 - 4444 - 4444" />
+            android:layout_marginTop="70dp"
+            tools:text="4444 - 4444 - 4444 - 4444" />
 
         <LinearLayout
             android:layout_width="match_parent"
@@ -59,16 +59,17 @@
                 android:layout_height="wrap_content"
                 android:layout_marginRight="@dimen/activity_vertical_margin" />
         </LinearLayout>
+
     </LinearLayout>
 
     <TextView
         android:id="@+id/content_putCard"
         style="@style/custom_tv"
-        android:drawableTop="@mipmap/nfc_scan"
+        android:drawableTop="@mipmap/teasy_logo"
         android:gravity="center"
         android:text="@string/tv_tapYourCard"
         android:textColor="@color/colorPrimary"
-        android:visibility="gone" />
+        android:visibility="gone"/>
 
 
 </LinearLayout>

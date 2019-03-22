@@ -199,6 +199,8 @@ public class MainActivity extends AppCompatActivity implements CardNfcAsyncTask.
             mCardLogoIcon.setImageResource(R.mipmap.ic_visa_logo);
         } else if (cardType.equals(CardNfcAsyncTask.CARD_MASTER_CARD)) {
             mCardLogoIcon.setImageResource(R.mipmap.master_logo);
+        } else if (cardType.equals(CardNfcAsyncTask.CARD_AMERICAN_EXPRESS)) {
+            mCardLogoIcon.setImageResource(R.mipmap.amex_logo);
         }
     }
 
@@ -209,15 +211,4 @@ public class MainActivity extends AppCompatActivity implements CardNfcAsyncTask.
                 + div + card.substring(12,16);
     }
 
-    private void goToRepo(){
-        Intent i = new Intent(Intent.ACTION_VIEW, Uri.parse(getString(R.string.repoUrl)));
-        i.addFlags(Intent.FLAG_ACTIVITY_NEW_TASK);
-        i.setPackage("com.android.chrome");
-        try{
-            startActivity(i);
-        } catch (ActivityNotFoundException e){
-            i.setPackage(null);
-            startActivity(i);
-        }
-    }
 }
