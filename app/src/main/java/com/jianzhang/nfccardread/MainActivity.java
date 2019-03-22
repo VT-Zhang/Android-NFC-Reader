@@ -25,7 +25,7 @@ public class MainActivity extends AppCompatActivity implements CardNfcAsyncTask.
     private TextView mPutCardContent;
     private TextView mCardNumberText;
     private TextView mExpireDateText;
-    private TextView mHolderNameText;
+//    private TextView mHolderNameText;
     private ImageView mCardLogoIcon;
     private NfcAdapter mNfcAdapter;
     private AlertDialog mTurnNfcDialog;
@@ -53,6 +53,7 @@ public class MainActivity extends AppCompatActivity implements CardNfcAsyncTask.
             mCardReadyContent = (LinearLayout) findViewById(R.id.content_cardReady);
             mCardNumberText = (TextView) findViewById(android.R.id.text1);
             mExpireDateText = (TextView) findViewById(android.R.id.text2);
+//            mHolderNameText = findViewById(android.R.id.title);
             mCardLogoIcon = (ImageView) findViewById(android.R.id.icon);
             createProgressDialog();
             initNfcMessages();
@@ -108,7 +109,8 @@ public class MainActivity extends AppCompatActivity implements CardNfcAsyncTask.
         card = getPrettyCardNumber(card);
         String expiredDate = mCardNfcAsyncTask.getCardExpireDate();
         String cardType = mCardNfcAsyncTask.getCardType();
-//        String holderName = mCardNfcAsyncTask.
+//        String holderName = mCardNfcAsyncTask.getHolderName();
+//        mHolderNameText.setText(holderName);
         mCardNumberText.setText(card);
         mExpireDateText.setText(expiredDate);
         parseCardType(cardType);
