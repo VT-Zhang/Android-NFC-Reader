@@ -14,8 +14,8 @@ import android.widget.ImageView;
 import android.widget.LinearLayout;
 import android.widget.TextView;
 
-import com.pro100svitlo.creditCardNfcReader.CardNfcAsyncTask;
-import com.pro100svitlo.creditCardNfcReader.utils.CardNfcUtils;
+import com.jianzhang.nfccardread.utils.CardNfcUtils;
+
 
 public class MainActivity extends AppCompatActivity implements CardNfcAsyncTask.CardNfcInterface {
 
