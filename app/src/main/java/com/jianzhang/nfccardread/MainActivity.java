@@ -1,10 +1,8 @@
-package com.pro100svitlo.nfccardread;
+package com.jianzhang.nfccardread;
 
 import android.app.ProgressDialog;
-import android.content.ActivityNotFoundException;
 import android.content.DialogInterface;
 import android.content.Intent;
-import android.net.Uri;
 import android.nfc.NfcAdapter;
 import android.os.Bundle;
 import android.support.design.widget.Snackbar;
@@ -18,7 +16,6 @@ import android.widget.TextView;
 
 import com.pro100svitlo.creditCardNfcReader.CardNfcAsyncTask;
 import com.pro100svitlo.creditCardNfcReader.utils.CardNfcUtils;
-
 
 public class MainActivity extends AppCompatActivity implements CardNfcAsyncTask.CardNfcInterface {
 
@@ -111,7 +108,7 @@ public class MainActivity extends AppCompatActivity implements CardNfcAsyncTask.
         card = getPrettyCardNumber(card);
         String expiredDate = mCardNfcAsyncTask.getCardExpireDate();
         String cardType = mCardNfcAsyncTask.getCardType();
-//        String holderName = mCardNfcAsyncTask
+//        String holderName = mCardNfcAsyncTask.
         mCardNumberText.setText(card);
         mExpireDateText.setText(expiredDate);
         parseCardType(cardType);
