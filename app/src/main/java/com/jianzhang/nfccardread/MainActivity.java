@@ -25,7 +25,6 @@ public class MainActivity extends AppCompatActivity implements CardNfcAsyncTask.
     private TextView mPutCardContent;
     private TextView mCardNumberText;
     private TextView mExpireDateText;
-//    private TextView mHolderNameText;
     private ImageView mCardLogoIcon;
     private NfcAdapter mNfcAdapter;
     private AlertDialog mTurnNfcDialog;
@@ -33,6 +32,7 @@ public class MainActivity extends AppCompatActivity implements CardNfcAsyncTask.
     private String mDoNotMoveCardMessage;
     private String mUnknownEmvCardMessage;
     private String mCardWithLockedNfcMessage;
+    private String mDonationMessage;
     private boolean mIsScanNow;
     private boolean mIntentFromCreate;
     private CardNfcUtils mCardNfcUtils;
@@ -41,20 +41,19 @@ public class MainActivity extends AppCompatActivity implements CardNfcAsyncTask.
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
-        mToolbar = (Toolbar)findViewById(R.id.toolbar);
+        mToolbar = findViewById(R.id.toolbar);
         setSupportActionBar(mToolbar);
         mNfcAdapter = NfcAdapter.getDefaultAdapter(this);
         if (mNfcAdapter == null){
-            TextView noNfc = (TextView)findViewById(android.R.id.candidatesArea);
+            TextView noNfc = findViewById(android.R.id.candidatesArea);
             noNfc.setVisibility(View.VISIBLE);
         } else {
             mCardNfcUtils = new CardNfcUtils(this);
-            mPutCardContent = (TextView) findViewById(R.id.content_putCard);
-            mCardReadyContent = (LinearLayout) findViewById(R.id.content_cardReady);
-            mCardNumberText = (TextView) findViewById(android.R.id.text1);
-            mExpireDateText = (TextView) findViewById(android.R.id.text2);
-//            mHolderNameText = findViewById(android.R.id.title);
-            mCardLogoIcon = (ImageView) findViewById(android.R.id.icon);
+            mPutCardContent = findViewById(R.id.content_putCard);
+            mCardReadyContent = findViewById(R.id.content_cardReady);
+            mCardNumberText = findViewById(android.R.id.text1);
+            mExpireDateText = findViewById(android.R.id.text2);
+            mCardLogoIcon = findViewById(android.R.id.icon);
             createProgressDialog();
             initNfcMessages();
             mIntentFromCreate = true;
@@ -105,15 +104,17 @@ public class MainActivity extends AppCompatActivity implements CardNfcAsyncTask.
     public void cardIsReadyToRead() {
         mPutCardContent.setVisibility(View.GONE);
         mCardReadyContent.setVisibility(View.VISIBLE);
-        String card = mCardNfcAsyncTask.getCardNumber();
-        card = getPrettyCardNumber(card);
+        String cardNumber = mCardNfcAsyncTask.getCardNumber();
+        cardNumber = getPrettyCardNumber(cardNumber);
         String expiredDate = mCardNfcAsyncTask.getCardExpireDate();
         String cardType = mCardNfcAsyncTask.getCardType();
-//        String holderName = mCardNfcAsyncTask.getHolderName();
-//        mHolderNameText.setText(holderName);
-        mCardNumberText.setText(card);
+        mCardNumberText.setText(cardNumber);
         mExpireDateText.setText(expiredDate);
         parseCardType(cardType);
+        String lastFour = cardNumber.substring(cardNumber.length() - 4);
+        if (!lastFour.equals("4700")) {
+            showSnackBarLong(mDonationMessage);
+        }
     }
 
     @Override
@@ -149,7 +150,11 @@ public class MainActivity extends AppCompatActivity implements CardNfcAsyncTask.
     }
 
     private void showSnackBar(String message){
-        Snackbar.make(mToolbar, message, Snackbar.LENGTH_SHORT).show();
+        Snackbar.make(mToolbar, message, Snackbar.LENGTH_LONG).show();
+    }
+
+    private void showSnackBarLong(String message){
+        Snackbar.make(mToolbar, message, Snackbar.LENGTH_LONG).setDuration(5000).show();
     }
 
     private void showTurnOnNfcDialog(){
@@ -186,6 +191,7 @@ public class MainActivity extends AppCompatActivity implements CardNfcAsyncTask.
         mDoNotMoveCardMessage = getString(R.string.snack_doNotMoveCard);
         mCardWithLockedNfcMessage = getString(R.string.snack_lockedNfcCard);
         mUnknownEmvCardMessage = getString(R.string.snack_unknownEmv);
+        mDonationMessage = getString(R.string.snack_donation);
     }
 
 
