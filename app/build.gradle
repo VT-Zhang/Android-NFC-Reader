@@ -5,7 +5,7 @@ android {
     buildToolsVersion "28.0.3"
 
     defaultConfig {
-        applicationId "com.pro100svitlo.nfccardread"
+        applicationId "com.jianzhang.www"
         minSdkVersion 16
         targetSdkVersion 28
         versionCode 5
@@ -25,5 +25,5 @@ dependencies {
     implementation 'com.android.support:appcompat-v7:28.0.0'
     implementation 'com.android.support:design:28.0.0'
     implementation 'com.github.pro100svitlo:creditCardNfcReader:1.0.3'
-    implementation project(path: ':creditCardNfcReader')
+//    implementation project(path: ':creditCardNfcReader')
 }

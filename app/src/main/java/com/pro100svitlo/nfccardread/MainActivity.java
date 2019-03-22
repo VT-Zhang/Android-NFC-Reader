@@ -192,16 +192,12 @@ public class MainActivity extends AppCompatActivity implements CardNfcAsyncTask.
 
     private void parseCardType(String cardType){
         if (cardType.equals(CardNfcAsyncTask.CARD_UNKNOWN)){
-            Snackbar.make(mToolbar, getString(R.string.snack_unknown_bank_card), Snackbar.LENGTH_LONG)
-                    .setAction("GO", new View.OnClickListener() {
-                        @Override
-                        public void onClick(View v) {
-                            goToRepo();
-                        }
-                    });
-        } else if (cardType.equals(CardNfcAsyncTask.CARD_VISA)){
-            mCardLogoIcon.setImageResource(R.mipmap.visa_logo);
-        } else if (cardType.equals(CardNfcAsyncTask.CARD_MASTER_CARD)){
+            Snackbar.make(mToolbar, getString(R.string.snack_unknown_bank_card), Snackbar.LENGTH_LONG);
+        } else if (cardType.equals(CardNfcAsyncTask.CARD_VISA)) {
+            mCardLogoIcon.setImageResource(R.mipmap.ic_visa_logo);
+        } else if (cardType.equals(CardNfcAsyncTask.CARD_NAB_VISA)) {
+            mCardLogoIcon.setImageResource(R.mipmap.ic_visa_logo);
+        } else if (cardType.equals(CardNfcAsyncTask.CARD_MASTER_CARD)) {
             mCardLogoIcon.setImageResource(R.mipmap.master_logo);
         }
     }

@@ -2,8 +2,7 @@
     package="com.pro100svitlo.nfccardreader">
 
     <uses-permission android:name="android.permission.NFC" />
-    <application
-        >
+    <application>
         <intent-filter>
             <action android:name="android.nfc.action.TECH_DISCOVERED" />
             <category android:name="android.intent.category.DEFAULT" />
