@@ -1,7 +1,7 @@
 <resources>
     <string name="app_name">Capital One T&amp;Easy NFC Card Reader</string>
     <string name="tv_noNfc">There is no NFC module on this device</string>
-    <string name="tv_tapYourCard">Put your card to the back of the phone</string>
+    <string name="tv_tapYourCard">Hold you device over the credit card with NFC chip</string>
     <string name="ad_progressBar_title">Scanning ...</string>
     <string name="ad_progressBar_mess">Please do not remove or move card during reading.</string>
     <string name="snack_unknown_bank_card">This is unknown bank card.</string>
