@@ -8,7 +8,7 @@
     <string name="snack_doNotMoveCard">Please do not move card, try again !</string>
     <string name="snack_unknownEmv">Unknown EMV card</string>
     <string name="snack_lockedNfcCard">NFC is locked on this card.</string>
-    <string name="snack_donation">Thank you for donating $10 to T&amp;Easy Mobile snack program ;)</string>
+    <string name="snack_donation">Thank you for donating $10 to T&amp;E Mobile snack program, ask Lizhi for receipt ;)</string>
     <string name="ad_nfcTurnOn_title">NFC is turned off.</string>
     <string name="ad_nfcTurnOn_message">You need turn on NFC module for scanning. Wish turn on it now?</string>
     <string name="ad_nfcTurnOn_pos">Turn on</string>

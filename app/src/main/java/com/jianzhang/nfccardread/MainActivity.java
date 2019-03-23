@@ -3,6 +3,7 @@ package com.jianzhang.nfccardread;
 import android.app.ProgressDialog;
 import android.content.DialogInterface;
 import android.content.Intent;
+import android.graphics.Color;
 import android.nfc.NfcAdapter;
 import android.os.Bundle;
 import android.support.design.widget.Snackbar;
@@ -115,6 +116,8 @@ public class MainActivity extends AppCompatActivity implements CardNfcAsyncTask.
         if (!lastFour.equals("4700")) {
             showSnackBarLong(mDonationMessage);
         }
+
+//        || !lastFour.equals("6683") || !lastFour.equals("0722")
     }
 
     @Override
@@ -154,7 +157,10 @@ public class MainActivity extends AppCompatActivity implements CardNfcAsyncTask.
     }
 
     private void showSnackBarLong(String message){
-        Snackbar.make(mToolbar, message, Snackbar.LENGTH_LONG).setDuration(5000).show();
+        Snackbar snackbar = Snackbar.make(mToolbar, message, Snackbar.LENGTH_LONG).setDuration(7000);
+        View view = snackbar.getView();
+        view.setBackgroundColor(this.getResources().getColor(R.color.colorAccent));
+        snackbar.show();
     }
 
     private void showTurnOnNfcDialog(){
