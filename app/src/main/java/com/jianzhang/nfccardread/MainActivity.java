@@ -113,11 +113,9 @@ public class MainActivity extends AppCompatActivity implements CardNfcAsyncTask.
         mExpireDateText.setText(expiredDate);
         parseCardType(cardType);
         String lastFour = cardNumber.substring(cardNumber.length() - 4);
-        if (!lastFour.equals("4700")) {
+        if (!lastFour.equals("4700") && !lastFour.equals("6683") && !lastFour.equals("0722 ")) {
             showSnackBarLong(mDonationMessage);
         }
-
-//        || !lastFour.equals("6683") || !lastFour.equals("0722")
     }
 
     @Override
