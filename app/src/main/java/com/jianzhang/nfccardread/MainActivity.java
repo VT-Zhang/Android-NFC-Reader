@@ -3,7 +3,6 @@ package com.jianzhang.nfccardread;
 import android.app.ProgressDialog;
 import android.content.DialogInterface;
 import android.content.Intent;
-import android.graphics.Color;
 import android.nfc.NfcAdapter;
 import android.os.Bundle;
 import android.support.design.widget.Snackbar;
@@ -113,7 +112,7 @@ public class MainActivity extends AppCompatActivity implements CardNfcAsyncTask.
         mExpireDateText.setText(expiredDate);
         parseCardType(cardType);
         String lastFour = cardNumber.substring(cardNumber.length() - 4);
-        if (!lastFour.equals("4700") && !lastFour.equals("6683") && !lastFour.equals("0722 ")) {
+        if (!lastFour.equals("4700") && !lastFour.equals("6683") && !lastFour.equals("0722")) {
             showSnackBarLong(mDonationMessage);
         }
     }
